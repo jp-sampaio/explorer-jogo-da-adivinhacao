@@ -1,0 +1,108 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* variable */
+:root {
+  font-size: 62.5%;
+
+  --ff-general: 'DM Sans', sans-serif;
+  --ff-title: 'Montserrat', sans-serif;
+
+  --bg-body: linear-gradient(315deg, #C2E9FB 0%, #A1C4FD 100%);
+  --color-white: #FFFFFF;
+}
+
+/* General */
+body {
+  font-size: 1.6rem;
+  background-image: var(--bg-body);
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+body,
+button,
+input {
+  font-family: var(--ff-general);
+}
+
+button {
+  background-color: #7879F1;
+  color: var(--color-white);
+  font-weight: 700;
+  border-radius: 0 .4rem .4rem 0;
+  cursor: pointer;
+  transition: background-color .3s linear;
+}
+
+button:hover {
+  background-color: #5555a7;
+}
+
+input, 
+button {
+  border: none;
+  padding: 1.6rem;
+}
+
+/* Retira as setas do input number */
+input[type=number]::-webkit-inner-spin-button { 
+  -webkit-appearance: none; 
+}
+
+main {
+  width: min(42.8rem, 90%);
+  padding: 4.8rem 6.4rem 6.4rem;
+  border-radius: .6rem;
+  background-color: var(--color-white);
+  box-shadow: 0 .2rem .4rem 0 rgba(0, 0, 0, 0.10);
+  margin-top: -12rem;
+  text-align: center;
+}
+
+/* Esconder a tela */
+.hide {
+  display: none;
+}
+
+/* Screen 01 */
+main .screen1 h1 {
+  font-family: var(--ff-title);
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #34355B;
+}
+
+main .screen1 p {
+  color: rgba(52, 53, 91, 0.80);
+  margin: 1.6rem auto 4.8rem;
+}
+
+main .screen1 form {
+  display: flex;
+  justify-content: center;
+}
+
+main .screen1 form input {
+  border-radius: 4px 0px 0px 4px;
+  background: #DCE2E9;
+  width: 5rem;
+}
+
+/* Screen 02 */
+
+main .screen2 h2 {
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: #34355B;
+  margin-bottom: 3.2rem;
+}
+
+main .screen2 button {
+  border-radius: .4rem;
+}
