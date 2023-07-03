@@ -8,16 +8,6 @@ const btnTry = document.querySelector("#btnTry");
 const btnReset = document.querySelector("#btnReset");
 let xAttempts = 1;
 
-const inputNumber = document.querySelector("#inputNumber");
-
-// function gameCondition (inputNumber) {
-//   if(Number(inputNumber.value) >= 0 && Number(inputNumber.value) <= 10) {
-//     handleTryClick();
-//   }
-// }
-
-// gameCondition(inputNumber);
-
 // Eventos
 btnTry.addEventListener("click", handleTryClick);
 btnReset.addEventListener("click", handleResetClick);
@@ -28,22 +18,27 @@ document.addEventListener("keydown", handleKeyEnter);
 // Funções
 function handleTryClick(event) {
   // Evitar as funções padrão do form;
-  event.preventDefault()
+  event.preventDefault();
 
-  // const inputNumber = document.querySelector('#inputNumber');
-  
-  if (Number(inputNumber.value) === randomNumber) {
-    handleToggle();
+  const inputNumber = document.querySelector("#inputNumber");
 
-    // Pegar o h2 dentro do elemento do screen2 que já foi declarada;
-    screen2.querySelector(
-      ".screen2 h2"
-    ).innerText = `Acertou em ${xAttempts} tentativas!`;
+  if (Number(inputNumber.value) >= 0 && Number(inputNumber.value) <= 10) {
+    if (Number(inputNumber.value) === randomNumber) {
+      handleToggle();
+
+      // Pegar o h2 dentro do elemento do screen2 que já foi declarada;
+      screen2.querySelector(
+        "h2"
+      ).innerText = `Acertou em ${xAttempts} tentativas!`;
+    }
+  } else {
+    alert("Número inválido! Digite um número entre 0 e 10.");
   }
-
+  
+  // Só vai incrementar se o campo não estiver vazio;
+  xAttempts++;
   // Toda vez que roda o condigo vai limpar o campo de input;
-  inputNumber.value = "";
-  xAttempts++
+  inputNumber.value = "";  
 }
 
 function handleResetClick () {
@@ -54,6 +49,9 @@ function handleResetClick () {
 
   // Reset o valor de tentativas de volta para 1;
   xAttempts = 1;
+
+  // quando voltar pra jogar novamente vai deixar o campo em focus;
+  inputNumber.focus();
 }
 
 function handleToggle () {
