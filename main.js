@@ -12,7 +12,7 @@ let xAttempts = 1;
 btnTry.addEventListener("click", handleTryClick);
 btnReset.addEventListener("click", handleResetClick);
 
-// Faz um evento, pra quando clicar na tecla enter executar a função
+// Faz um evento, pra quando clicar na tecla enter executar a função;
 document.addEventListener("keydown", handleKeyEnter);
 
 // Funções
@@ -27,16 +27,20 @@ function handleTryClick(event) {
       handleToggle();
 
       // Pegar o h2 dentro do elemento do screen2 que já foi declarada;
-      screen2.querySelector(
-        "h2"
-      ).innerText = `Acertou em ${xAttempts} tentativas!`;
+      screen2.querySelector("h2").innerText = `Acertou em ${xAttempts} tentativa(s)!`;
     }
   } else {
     alert("Número inválido! Digite um número entre 0 e 10.");
+    xAttempts -= 1;
+  } 
+
+  if(inputNumber.value == "") {
+    alert("Campo vazio! Insira um número.")
+    xAttempts -= 1;
   }
-  
-  // Só vai incrementar se o campo não estiver vazio;
+
   xAttempts++;
+
   // Toda vez que roda o condigo vai limpar o campo de input;
   inputNumber.value = "";  
 }
